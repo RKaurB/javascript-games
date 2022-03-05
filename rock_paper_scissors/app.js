@@ -13,4 +13,13 @@ possibleChoices.forEach(possibleChoice => possibleChoice.addEventListener('click
    userChoice = e.target.id;
    // Assign userChoice to userChoiceDisplay
    userChoiceDisplay.innerHTML = userChoice;
+   // Call generateComputerChoice function
+   generateComputerChoice();
 }))
+
+// Create generateComputerChoice function
+function generateComputerChoice() {
+    // Generate a random whole number between 1-3
+    const randomNumber = Math.floor(Math.random() * possibleChoices.length) + 1;
+    console.log(randomNumber);
+}
