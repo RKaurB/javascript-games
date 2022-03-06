@@ -1,7 +1,7 @@
 // Create a card array - with 12 cards
 // To add elements to our grid
 const cardArray = [
-    // Add objects to array
+    // Add objects to array - card options
     {
         name: 'acorn',
         img: 'images/fries.png'
@@ -96,12 +96,27 @@ function createBoard () {
         // Test loop
         // console.log(card, i);
         // Add unique id to each card
-        card.setAttribute('data-id', i);
+        card.setAttribute('data-id', i + 1);
         // Test loop
         // console.log(card, i);
+        // Add event listener to card - call flipCard function if card clicked
+        card.addEventListener('click', flipCard);
         // Append card to the grid display
         gridDisplay.appendChild(card);
     }
 }
 
 createBoard();
+
+// Function to flip card when clicked
+function flipCard() {
+    // Test shuffled card array
+    console.log(cardArray);
+    // Get this card id and store in cardId
+    const cardId = this.getAttribute('data-id');
+    // Test clicked and card id
+    // console.log('clicked', cardId);   
+    // Pass card id into cardArray to return the img name
+    console.log(cardArray[cardId].name);
+    console.log('clicked', cardId); 
+}
