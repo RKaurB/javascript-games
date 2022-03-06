@@ -49,6 +49,22 @@ const cardArray = [
     {
         name: 'sun',
         img: 'images/sun.png'
+    },
+    {
+        name: 'tree',
+        img: 'images/tree.png'
+    },
+    {
+        name: 'rainbow',
+        img: 'images/rainbow.png'
+    },
+    {
+        name: 'tree',
+        img: 'images/tree.png'
+    },
+    {
+        name: 'rainbow',
+        img: 'images/rainbow.png'
     }
 ]
 
@@ -70,19 +86,21 @@ const gridDisplay = document.querySelector('#grid');
 // Function to create the grid board
 function createBoard () {
     // For each item in cardArray, create an image element
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < cardArray.length; i++) {
         const card = document.createElement('img');
         // Test loop
         // console.log(card, i);
         // Once created, add an image to it
         // Set the source attribute to the image, and blank card
-        card.setAttribute('src', 'images/blank.png');
+        card.setAttribute('src', 'images/color.png');
         // Test loop
         // console.log(card, i);
         // Add unique id to each card
         card.setAttribute('data-id', i);
         // Test loop
-        console.log(card, i);
+        // console.log(card, i);
+        // Append card to the grid display
+        gridDisplay.appendChild(card);
     }
 }
 

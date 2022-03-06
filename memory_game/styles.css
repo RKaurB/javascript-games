@@ -1,7 +1,7 @@
 /* Give grid dimensions */
 #grid {
     width: 500px;
-    height: 300px;
+    height: 400px;
     /* Ensure all of the divs wrap over each other with no gaps */
     display: flex;
     flex-wrap: wrap;
