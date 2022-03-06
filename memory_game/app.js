@@ -80,6 +80,8 @@ cardArray.sort(() => 0.5 - Math.random());
 // Use querySelector to search for the grid id and save into gridDisplay
 const gridDisplay = document.querySelector('#grid');
 
+const resultDisplay = document.querySelector('#result');
+
 // Create new, empty array - chosen cards will be pushed into the array
 let cardsChosen = [];
 
@@ -121,9 +123,15 @@ function checkMatch() {
     // Get every single card image on the grid and save in cards variable
     const cards = document.querySelectorAll('#grid img')
     // Test all cards
-    console.log(cards);
+    // console.log(cards);
     // Test checking for match
     // console.log("check for match!");
+    // Alert if click the same card/image
+    if (cardsChosen[0] == cardsChosen[1]) {
+        cards[cardsChosenIds[0]].setAttribute('src', 'images/blank.png');
+        cards[cardsChosenIds[1]].setAttribute('src', 'images/blank.png');
+        alert("You have clicked the same card");
+    }
     // If first card image chosen is same as second card image chosen
     if (cardsChosen[0] == cardsChosen[1]) {
         // Alert says match
@@ -137,10 +145,24 @@ function checkMatch() {
         // Push in the matched contents of cardsChosen array
         // Records how many cards won, i.e. how many matches
         cardsWon.push(cardsChosen);
+    } else {
+        // If no match, flip the cards back
+        cards[cardsChosenIds[0]].setAttribute('src', 'images/color-abstract.png');
+        cards[cardsChosenIds[1]].setAttribute('src', 'images/color-abstract.png');
+        alert("Sorry, try again!");
     }
+    // Add points to result display
+    // resultDisplay.innerHTML = cardsWon.length;
+    resultDisplay.textContent = cardsWon.length;
     // Then empty cardsChosen and cardsChosenIds arrays, to start process again
     cardsChosen = [];
     cardsChosenIds = [];
+
+    // If 6 matches
+    if (cardsWon.length == cardArray.length / 2) {
+        // resultDisplay.innerHTML = "Congratulations, you found them all!"
+        resultDisplay.textContent = "Congratulations, you found them all!"
+    }
 }
 
 // Function to flip card when clicked
