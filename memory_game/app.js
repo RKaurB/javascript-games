@@ -80,6 +80,10 @@ cardArray.sort(() => 0.5 - Math.random());
 // Use querySelector to search for the grid id and save into gridDisplay
 const gridDisplay = document.querySelector('#grid');
 
+// Create new, empty array - chosen cards will be pushed into the array
+const cardsChosen = [];
+
+
 // Test gridDisplay
 // console.log(gridDisplay);
 
@@ -96,7 +100,7 @@ function createBoard () {
         // Test loop
         // console.log(card, i);
         // Add unique id to each card
-        card.setAttribute('data-id', i + 1);
+        card.setAttribute('data-id', i);
         // Test loop
         // console.log(card, i);
         // Add event listener to card - call flipCard function if card clicked
@@ -114,9 +118,13 @@ function flipCard() {
     console.log(cardArray);
     // Get this card id and store in cardId
     const cardId = this.getAttribute('data-id');
+    // Push card img name into cardsChosen array
+    cardsChosen.push(cardArray[cardId].name);
     // Test clicked and card id
-    // console.log('clicked', cardId);   
     // Pass card id into cardArray to return the img name
-    console.log(cardArray[cardId].name);
     console.log('clicked', cardId); 
+    // console.log(cardArray[cardId].name);
+    console.log(cardsChosen);
+    // Add image when flipped, and assign it to the card
+    this.setAttribute('src', cardArray[cardId].img);
 }
