@@ -4,7 +4,7 @@ const cardArray = [
     // Add objects to array - card options
     {
         name: 'acorn',
-        img: 'images/fries.png'
+        img: 'images/acorn.png'
     },
     {
         name: 'earth',
@@ -28,7 +28,7 @@ const cardArray = [
     },
     {
         name: 'acorn',
-        img: 'images/fries.png'
+        img: 'images/acorn.png'
     },
     {
         name: 'earth',
@@ -81,8 +81,13 @@ cardArray.sort(() => 0.5 - Math.random());
 const gridDisplay = document.querySelector('#grid');
 
 // Create new, empty array - chosen cards will be pushed into the array
-const cardsChosen = [];
+let cardsChosen = [];
 
+// Create another empty array for chosen card id's
+let cardsChosenIds = [];
+
+// Create empty array for how many matches 
+const cardsWon = [];
 
 // Test gridDisplay
 // console.log(gridDisplay);
@@ -96,7 +101,7 @@ function createBoard () {
         // console.log(card, i);
         // Once created, add an image to it
         // Set the source attribute to the image, and blank card
-        card.setAttribute('src', 'images/color.png');
+        card.setAttribute('src', 'images/color-abstract.png');
         // Test loop
         // console.log(card, i);
         // Add unique id to each card
@@ -109,8 +114,34 @@ function createBoard () {
         gridDisplay.appendChild(card);
     }
 }
-
 createBoard();
+
+// Function to check for match
+function checkMatch() {
+    // Get every single card image on the grid and save in cards variable
+    const cards = document.querySelectorAll('#grid img')
+    // Test all cards
+    console.log(cards);
+    // Test checking for match
+    // console.log("check for match!");
+    // If first card image chosen is same as second card image chosen
+    if (cardsChosen[0] == cardsChosen[1]) {
+        // Alert says match
+        alert("It's a match!");
+        // Go into all the cards in our document, and pass in the chosen id's first and second item - then assign the blank (white) background to those cards if a match
+        cards[cardsChosenIds[0]].setAttribute('src', 'images/blank.png');
+        cards[cardsChosenIds[1]].setAttribute('src', 'images/blank.png');
+        // Remove event listener to stop listening out for clicks - i.e. remove ability to click on the cards
+        cards[cardsChosenIds[0]].removeEventListener('click', flipCard);
+        cards[cardsChosenIds[1]].removeEventListener('click', flipCard);
+        // Push in the matched contents of cardsChosen array
+        // Records how many cards won, i.e. how many matches
+        cardsWon.push(cardsChosen);
+    }
+    // Then empty cardsChosen and cardsChosenIds arrays, to start process again
+    cardsChosen = [];
+    cardsChosenIds = [];
+}
 
 // Function to flip card when clicked
 function flipCard() {
@@ -120,11 +151,20 @@ function flipCard() {
     const cardId = this.getAttribute('data-id');
     // Push card img name into cardsChosen array
     cardsChosen.push(cardArray[cardId].name);
+    // Push card id into the chosen ids
+    cardsChosenIds.push(cardId);
     // Test clicked and card id
     // Pass card id into cardArray to return the img name
-    console.log('clicked', cardId); 
+    // console.log('clicked', cardId); 
     // console.log(cardArray[cardId].name);
     console.log(cardsChosen);
+    console.log(cardsChosenIds);
     // Add image when flipped, and assign it to the card
     this.setAttribute('src', cardArray[cardId].img);
+    // If two cards in cardsChosen array
+    if (cardsChosen.length === 2) {
+        // Call checkMatch function after 500ms has passed
+        setTimeout(checkMatch, 500);
+        // Check for a match
+    }
 }
