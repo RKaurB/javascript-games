@@ -60,3 +60,30 @@ cardArray.sort(() => 0.5 - Math.random());
 
 // Test randomly sorted cardArray
 // console.log(cardArray);
+
+// Use querySelector to search for the grid id and save into gridDisplay
+const gridDisplay = document.querySelector('#grid');
+
+// Test gridDisplay
+// console.log(gridDisplay);
+
+// Function to create the grid board
+function createBoard () {
+    // For each item in cardArray, create an image element
+    for (let i = 0; i < 10; i++) {
+        const card = document.createElement('img');
+        // Test loop
+        // console.log(card, i);
+        // Once created, add an image to it
+        // Set the source attribute to the image, and blank card
+        card.setAttribute('src', 'images/blank.png');
+        // Test loop
+        // console.log(card, i);
+        // Add unique id to each card
+        card.setAttribute('data-id', i);
+        // Test loop
+        console.log(card, i);
+    }
+}
+
+createBoard();
