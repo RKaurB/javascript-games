@@ -86,6 +86,11 @@ let cardsChosenIds = [];
 // Create empty array for how many matches 
 const cardsWon = [];
 
+const gridColorArray = ['images/color-abstract.png', 'images/color-bluesky.png', 'images/color-flowers.png', 'images/color-pinkswirl.png', 'images/color-rainbowsmoke.png', 'images/color-stars.png'];
+
+gridColorArray.sort(() => 0.5 - Math.random());
+console.log(gridColorArray);
+
 // Function to create the grid board
 function createBoard () {
     // For each item in cardArray, create an image element
@@ -93,7 +98,8 @@ function createBoard () {
         const card = document.createElement('img');
         // Once created, add an image to it
         // Set the source attribute to the image, and blank card
-        card.setAttribute('src', 'images/color-abstract.png');
+        // card.setAttribute('src', 'images/color-abstract.png');
+        card.setAttribute('src', gridColorArray[0]);
         // Add unique id to each card
         card.setAttribute('data-id', i);
         // Test loop
