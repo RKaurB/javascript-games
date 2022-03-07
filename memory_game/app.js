@@ -87,7 +87,8 @@ let cardsChosenIds = [];
 const cardsWon = [];
 
 // Create array for different grid color schemes
-const gridColorArray = ['images/color-abstract.png', 'images/color-bluesky.png', 'images/color-flowers.png', 'images/color-pinkswirl.png', 'images/color-rainbowsmoke.png', 'images/color-stars.png'];
+// const gridColorArray = ['images/color-abstract.png', 'images/color-bluesky.png', 'images/color-flowers.png', 'images/color-pinkswirl.png', 'images/color-rainbowsmoke.png', 'images/color-stars.png'];
+const gridColorArray = ['images/color-abstract.png', 'images/color-bluesky.png', 'images/color-flowers.png'];
 
 // Randomise grid color scheme
 gridColorArray.sort(() => 0.5 - Math.random());
@@ -153,7 +154,8 @@ function checkMatch() {
     }
     // Add points to result display
     // resultDisplay.innerHTML = cardsWon.length;
-    resultDisplay.textContent = cardsWon.length;
+    // Uncomment below if want score to show
+    // resultDisplay.textContent = cardsWon.length;
     // Then empty cardsChosen and cardsChosenIds arrays, to start process again
     cardsChosen = [];
     cardsChosenIds = [];
