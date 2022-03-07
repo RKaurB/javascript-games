@@ -135,8 +135,8 @@ function checkMatch() {
         // Show alert
         alert("It's a match!");
         // Go into all the cards in our document, and pass in the chosen id's first and second item - then assign the blank (white) background to those cards if a match
-        cards[cardsChosenIds[0]].setAttribute('src', 'images/blank.png');
-        cards[cardsChosenIds[1]].setAttribute('src', 'images/blank.png');
+        cards[cardsChosenIds[0]].setAttribute('src', 'images/blank-star.png');
+        cards[cardsChosenIds[1]].setAttribute('src', 'images/blank-star.png');
         // Remove event listener to stop listening out for clicks - i.e. remove ability to click on the cards
         cards[cardsChosenIds[0]].removeEventListener('click', flipCard);
         cards[cardsChosenIds[1]].removeEventListener('click', flipCard);
