@@ -86,10 +86,12 @@ let cardsChosenIds = [];
 // Create empty array for how many matches 
 const cardsWon = [];
 
+// Create array for different grid color schemes
 const gridColorArray = ['images/color-abstract.png', 'images/color-bluesky.png', 'images/color-flowers.png', 'images/color-pinkswirl.png', 'images/color-rainbowsmoke.png', 'images/color-stars.png'];
 
+// Randomise grid color scheme
 gridColorArray.sort(() => 0.5 - Math.random());
-console.log(gridColorArray);
+// console.log(gridColorArray);
 
 // Function to create the grid board
 function createBoard () {
@@ -121,8 +123,10 @@ function checkMatch() {
     // console.log("check for match!");
     // Alert if click the same card/image
     if (cardsChosenIds[0] == cardsChosenIds[1]) {
-        cards[cardsChosenIds[0]].setAttribute('src', 'images/color-abstract.png');
-        cards[cardsChosenIds[1]].setAttribute('src', 'images/color-abstract.png');
+        // cards[cardsChosenIds[0]].setAttribute('src', 'images/color-abstract.png');
+        // cards[cardsChosenIds[1]].setAttribute('src', 'images/color-abstract.png');
+        cards[cardsChosenIds[0]].setAttribute('src', gridColorArray[0]);
+        cards[cardsChosenIds[1]].setAttribute('src', gridColorArray[0]);
         alert("You have clicked the same card");
     }
     // If first card image chosen is same as second card image chosen
@@ -140,8 +144,10 @@ function checkMatch() {
         cardsWon.push(cardsChosen);
     } else {
         // If no match, flip the cards back
-        cards[cardsChosenIds[0]].setAttribute('src', 'images/color-abstract.png');
-        cards[cardsChosenIds[1]].setAttribute('src', 'images/color-abstract.png');
+        // cards[cardsChosenIds[0]].setAttribute('src', 'images/color-abstract.png');
+        // cards[cardsChosenIds[1]].setAttribute('src', 'images/color-abstract.png');
+        cards[cardsChosenIds[0]].setAttribute('src', gridColorArray[0]);
+        cards[cardsChosenIds[1]].setAttribute('src', gridColorArray[0]);
         // Show alert
         alert("Sorry, try again!");
     }
