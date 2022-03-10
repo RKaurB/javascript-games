@@ -87,7 +87,6 @@ let cardsChosenIds = [];
 const cardsWon = [];
 
 // Create array for different grid color schemes
-// const gridColorArray = ['images/color-abstract.png', 'images/color-bluesky.png', 'images/color-flowers.png', 'images/color-pinkswirl.png', 'images/color-rainbowsmoke.png', 'images/color-stars.png'];
 const gridColorArray = ['images/color-abstract.png', 'images/color-bluesky.png', 'images/color-flowers.png'];
 
 // Randomise grid color scheme
@@ -105,8 +104,6 @@ function createBoard () {
         card.setAttribute('src', gridColorArray[0]);
         // Add unique id to each card
         card.setAttribute('data-id', i);
-        // Test loop
-        // console.log(card, i);
         // Add event listener to card - call flipCard function if card clicked
         card.addEventListener('click', flipCard);
         // Append card to the grid display
@@ -119,9 +116,6 @@ createBoard();
 function checkMatch() {
     // Get every single card image on the grid and save in cards variable
     const cards = document.querySelectorAll('#grid img')
-    // Test all cards and checking for match
-    // console.log(cards);
-    // console.log("check for match!");
     // Alert if click the same card/image
     if (cardsChosenIds[0] == cardsChosenIds[1]) {
         // cards[cardsChosenIds[0]].setAttribute('src', 'images/color-abstract.png');
@@ -168,20 +162,13 @@ function checkMatch() {
 
 // Function to flip card when clicked
 function flipCard() {
-    // Test shuffled card array
-    // console.log(cardArray);
     // Get this card id and store in cardId
     const cardId = this.getAttribute('data-id');
     // Push card img name into cardsChosen array
     cardsChosen.push(cardArray[cardId].name);
     // Push card id into the chosen ids
     cardsChosenIds.push(cardId);
-    // Test clicked and card id
     // Pass card id into cardArray to return the img name
-    // console.log('clicked', cardId); 
-    // console.log(cardArray[cardId].name);
-    // console.log(cardsChosen);
-    // console.log(cardsChosenIds);
     // Add image when flipped, and assign it to the card
     this.setAttribute('src', cardArray[cardId].img);
     // If two cards in cardsChosen array
