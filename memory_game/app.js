@@ -122,12 +122,12 @@ function checkMatch() {
         // cards[cardsChosenIds[1]].setAttribute('src', 'images/color-abstract.png');
         cards[cardsChosenIds[0]].setAttribute('src', gridColorArray[0]);
         cards[cardsChosenIds[1]].setAttribute('src', gridColorArray[0]);
-        alert("You have clicked the same card");
+        // alert("You have clicked the same card");
     }
     // If first card image chosen is same as second card image chosen
     else if (cardsChosen[0] == cardsChosen[1]) {
         // Show alert
-        alert("It's a match!");
+        // alert("It's a match!");
         // Go into all the cards in our document, and pass in the chosen id's first and second item - then assign the blank (white) background to those cards if a match
         cards[cardsChosenIds[0]].setAttribute('src', 'images/blank-star.png');
         cards[cardsChosenIds[1]].setAttribute('src', 'images/blank-star.png');
@@ -144,7 +144,8 @@ function checkMatch() {
         cards[cardsChosenIds[0]].setAttribute('src', gridColorArray[0]);
         cards[cardsChosenIds[1]].setAttribute('src', gridColorArray[0]);
         // Show alert
-        alert("Sorry, try again!");
+        // alert("Sorry, try again!");
+
     }
     // Add points to result display
     // resultDisplay.innerHTML = cardsWon.length;
@@ -174,7 +175,7 @@ function flipCard() {
     // If two cards in cardsChosen array
     if (cardsChosen.length === 2) {
         // Call checkMatch function after 500ms has passed
-        setTimeout(checkMatch, 500);
+        setTimeout(checkMatch, 1500);
         // Check for a match
     }
 }
